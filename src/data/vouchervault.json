@@ -1,0 +1,98 @@
+[
+  {
+    "uuid": "33b49bf1-5870-4a97-b851-b2e181152b4d",
+    "description": "Benu Liekareň",
+    "code": "7700006219798",
+    "codeType": "EAN13",
+    "expires": null,
+    "removeOnceExpired": true,
+    "balance": null,
+    "balanceMilliunits": null,
+    "notes": "",
+    "color": "GREY"
+  },
+  {
+    "uuid": "f84baeab-2317-4084-bdce-7efbeec8f23f",
+    "description": "Billa",
+    "code": "9940284873482",
+    "codeType": "EAN13",
+    "expires": null,
+    "removeOnceExpired": true,
+    "balance": null,
+    "balanceMilliunits": null,
+    "notes": "",
+    "color": "BLUE"
+  },
+  {
+    "uuid": "4f72dc25-fe29-4f84-a767-d0183706e972",
+    "description": "DM",
+    "code": "2415014908415",
+    "codeType": "EAN13",
+    "expires": null,
+    "removeOnceExpired": true,
+    "balance": null,
+    "balanceMilliunits": null,
+    "notes": "9040195014908413",
+    "color": "GREEN"
+  },
+  {
+    "uuid": "9f341dfe-1256-499e-ae4d-e7d912e446fd",
+    "description": "Dr.Max+",
+    "code": "8802367451442",
+    "codeType": "CODE128",
+    "expires": null,
+    "removeOnceExpired": true,
+    "balance": null,
+    "balanceMilliunits": null,
+    "notes": "",
+    "color": "ORANGE"
+  },
+  {
+    "uuid": "25227384-ccf3-4067-a53b-71c738ee7f7d",
+    "description": "Ikea",
+    "code": "6275980443103138630",
+    "codeType": "QR",
+    "expires": null,
+    "removeOnceExpired": true,
+    "balance": null,
+    "balanceMilliunits": null,
+    "notes": "6275980443103138630",
+    "color": "PURPLE"
+  },
+  {
+    "uuid": "e1e9344e-9c05-423a-8bd8-3259edba4bd0",
+    "description": "Kaufland",
+    "code": "KQR00001:703104707491",
+    "codeType": "QR",
+    "expires": null,
+    "removeOnceExpired": true,
+    "balance": null,
+    "balanceMilliunits": null,
+    "notes": "6002110470749113",
+    "color": "RED"
+  },
+  {
+    "uuid": "2c1ae396-373c-4c21-b099-961c26325d61",
+    "description": "Lidl",
+    "code": "77210006767972662",
+    "codeType": "QR",
+    "expires": null,
+    "removeOnceExpired": true,
+    "balance": null,
+    "balanceMilliunits": null,
+    "notes": "77210006767972662",
+    "color": "YELLOW"
+  },
+  {
+    "uuid": "12b32e79-5a2a-4677-89dd-e66a7b904d39",
+    "description": "Tesco",
+    "code": "634009506001152746",
+    "codeType": "CODE128",
+    "expires": null,
+    "removeOnceExpired": true,
+    "balance": null,
+    "balanceMilliunits": null,
+    "notes": "",
+    "color": "GREY"
+  }
+]
