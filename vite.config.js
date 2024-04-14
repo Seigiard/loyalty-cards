@@ -1,3 +1,3 @@
 export default {
-  base: '/loyalty-cards/';
-}
+  base: '/loyalty-cards/',
+};
