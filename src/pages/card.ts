@@ -1,20 +1,22 @@
+import navaid from "navaid";
 // @ts-expect-error
 import { signal } from "reefjs";
-import navaid from "navaid";
 import { $cards, Card, cardColors } from "../stores/cards";
 import { backToListLink } from "../components/backToListLink";
 import { code } from "../components/code";
+import { getBaseUrl } from "../helpers/getBaseUrl";
 
 // Create a signal object
 const $cardId: { value: Card["uuid"] | undefined } = signal({ value: undefined });
 
 const router = navaid();
+console.log(getBaseUrl("/123123"));
 
 router
-    .on("/", () => {
+    .on(getBaseUrl("/"), () => {
         $cardId.value = undefined;
     })
-    .on("/:cardId", (params) => {
+    .on(getBaseUrl("/:cardId"), (params) => {
         $cardId.value = params?.cardId;
     });
 
@@ -54,7 +56,7 @@ function cardHeader(card: Card, { isLink }: { isLink?: boolean } = {}) {
             <h2 class="card_header">${card.description}</h2>
         `;
     }
-    return `<h2 class="card_header"><a href="/${card.uuid}">${card.description}</a></h2>`;
+    return `<h2 class="card_header"><a href="${getBaseUrl(card.uuid)}">${card.description}</a></h2>`;
 }
 
 function cardDetails(card: Card) {
