@@ -8,13 +8,13 @@ export default defineConfig({
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+      includeAssets: ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png'],
       manifest: {
         name: 'Loyalty Cards',
         short_name: 'LoyaltyCards',
         id: 'andrej.borisenko.loyalty-cards',
         description: 'Store your discount and loyalty cards in your phone',
-        theme_color: '#ffffff',
+        theme_color: '#212121',
         display_override: ['fullscreen', 'minimal-ui'],
         display: 'standalone',
         icons: [
