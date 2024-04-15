@@ -1,4 +1,5 @@
 import { getBaseUrl } from '../helpers/getBaseUrl';
+import './backToListLink.css';
 
 export function backToListLink() {
   return `
