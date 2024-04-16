@@ -15,31 +15,28 @@ trackDeviceOrientationWithMouseFallback((baseX: number, baseY: number) => {
 
 function trackDeviceOrientationWithMouseFallback(
   cb: (baseX: number, baseY: number) => void,
-  { sensitivity } = { sensitivity: 15 }
+  { sensitivity } = { sensitivity: 0.5 }
 ) {
   const tCb = throttle(cb, 50);
   !!window?.DeviceOrientationEvent &&
     window.addEventListener('deviceorientation', function (e) {
-      var baseX = e.gamma ?? 0 / sensitivity;
-      var baseY = e.beta ?? 0 / sensitivity;
-      tCb(baseX, baseY);
+      var baseX = e.gamma ?? 0;
+      var baseY = e.beta ?? 0;
+      tCb(baseX * sensitivity, baseY * sensitivity);
     });
 
   window.addEventListener('mousemove', function (e) {
-    var baseX = getProportion(
-      (e.x - window.innerWidth / 2) * -1,
-      window.innerWidth / 2
-    );
-    var baseY = getProportion(
-      (e.y - window.innerHeight / 2) * -1,
-      window.innerHeight / 2
-    );
-    tCb(baseX, baseY);
+    var baseX = getCoordinatedBasedOnCursor(window.innerWidth, e.x);
+    var baseY = getCoordinatedBasedOnCursor(window.innerHeight, e.y);
+    console.log(baseX, baseY);
+
+    tCb(baseX * sensitivity, baseY * sensitivity);
   });
 }
 
-function getProportion(base: number, x: number) {
-  return Math.round((base * 100) / x);
+function getCoordinatedBasedOnCursor(axis: number, point: number) {
+  const halfAxis = axis / 2;
+  return Math.round(((point - halfAxis) * -90) / halfAxis);
 }
 
 function throttle<T>(func: T, limit: number) {
