@@ -17,5 +17,5 @@
 }
 .cards .card.card__compact:hover,
 .cards .card:focus-within {
-  transform: rotate(1deg) translate(-1rem, -0.5rem);
+  transform: scale(1.02);
 }

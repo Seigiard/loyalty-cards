@@ -7,17 +7,19 @@ import './style.css';
 component('#cards', cards);
 component('#card', card);
 
-const shadowBox = document.body;
+const documentBody = document.body;
 trackDeviceOrientationWithMouseFallback((baseX: number, baseY: number) => {
-  shadowBox.style.setProperty('--point-x', baseX.toString());
-  shadowBox.style.setProperty('--point-y', baseY.toString());
+  const angle = getDegreesFromCoordinates(baseX, baseY) + 'deg';
+  documentBody.style.setProperty('--angle', angle);
+  documentBody.style.setProperty('--point-x', baseX.toString());
+  documentBody.style.setProperty('--point-y', baseY.toString());
 });
 
 function trackDeviceOrientationWithMouseFallback(
   cb: (baseX: number, baseY: number) => void,
   { sensitivity } = { sensitivity: 0.5 }
 ) {
-  const tCb = throttle(cb, 50);
+  const tCb = throttle(cb, 100);
   !!window?.DeviceOrientationEvent &&
     window.addEventListener('deviceorientation', function (e) {
       var baseX = e.gamma ?? 0;
@@ -28,10 +30,13 @@ function trackDeviceOrientationWithMouseFallback(
   window.addEventListener('mousemove', function (e) {
     var baseX = getCoordinatedBasedOnCursor(window.innerWidth, e.x);
     var baseY = getCoordinatedBasedOnCursor(window.innerHeight, e.y);
-    console.log(baseX, baseY);
 
     tCb(baseX * sensitivity, baseY * sensitivity);
   });
+}
+
+function getDegreesFromCoordinates(x: number, y: number) {
+  return Math.round((Math.atan2(x * -1, y) * 180) / Math.PI) + 180;
 }
 
 function getCoordinatedBasedOnCursor(axis: number, point: number) {

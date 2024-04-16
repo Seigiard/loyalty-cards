@@ -7,7 +7,7 @@
   width: min(90vw, 35rem);
   transform-origin: 50% 100%;
   position: relative;
-  transition: transform 0.2s ease-in-out;
+  transition: box-shadow 0.2s linear, transform 0.2s ease-in-out;
 
   z-index: calc(var(--level, 0) * 10 + 1);
 
@@ -80,10 +80,11 @@
   right: 0;
   z-index: -1;
   background: linear-gradient(
-    -135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(0, 0, 0, 0.3) 100%
+    var(--angle, -135deg),
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%
   );
+  transition: background 0.2s linear;
 }
 .card__compact {
   width: min(80vw, 30rem);

@@ -6,6 +6,7 @@
 
   --point-x: 0;
   --point-y: 0;
+  --angle: 135deg;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
