@@ -1,0 +1,22 @@
+.settingsButton {
+  position: absolute;
+  display: flex;
+  z-index: 5;
+  right: 1rem;
+  top: 1rem;
+  color: #fff;
+
+  transition: transform 0.2s ease-in-out;
+}
+.settingsButton:hover,
+.settingsButton:focus {
+  transform: rotate(45deg);
+}
+
+.settingsButton svg {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: currentColor;
+  stroke-width: 1;
+}

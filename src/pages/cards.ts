@@ -5,9 +5,9 @@ import './cards.css';
 
 export function cards() {
   return layer(`
-    <div class="cards"><div class="stack">
+    <div class="cards">
         ${$cards.value.map(cards_card).join('')}
-    </div></div>
+    </div>
   `);
 }
 

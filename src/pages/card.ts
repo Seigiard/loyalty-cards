@@ -1,30 +1,12 @@
-import navaid from 'navaid';
 // @ts-expect-error
 import { signal } from 'reefjs';
 import { $cards, Card, cardColors } from '../stores/cards';
 import { backToListLink } from '../components/backToListLink';
 import { code } from '../components/code';
+import { layer } from '../components/layer';
+import { $cardId } from '../stores/cardId';
 import { getBaseUrl } from '../helpers/getBaseUrl';
 import './card.css';
-import { layer } from '../components/layer';
-
-// Create a signal object
-const $cardId: { value: Card['uuid'] | undefined } = signal({
-  value: undefined,
-});
-
-const router = navaid();
-console.log(getBaseUrl('/123123'));
-
-router
-  .on(getBaseUrl('/'), () => {
-    $cardId.value = undefined;
-  })
-  .on(getBaseUrl('/:cardId'), (params) => {
-    $cardId.value = params?.cardId;
-  });
-
-router.listen();
 
 export function card() {
   const card = $cards.value.find((card) => card.uuid === $cardId.value);
