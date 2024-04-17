@@ -15,7 +15,6 @@
     <script>
       const path = localStorage.getItem('404path');
       if (path) {
-        console.log('Redirecting to', path);
         localStorage.removeItem('404path');
         window.location.replace(path);
       }
