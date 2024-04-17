@@ -1,9 +1,20 @@
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loyalty Cards</title>
+    <meta
+      name="description"
+      content="Store your discount and loyalty cards in your phone"
+    />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icon-180.png" sizes="180x180" />
+    <meta name="theme-color" content="#212121" />
     <script>
       const path = window.location.pathname.slice(1);
       localStorage.setItem('404path', path);
-      window.location.href = '%BASE_URL%';
+      window.location.replace('%BASE_URL%');
     </script>
   </head>
 </html>
