@@ -1,5 +1,9 @@
-<script>
-  const path = window.location.pathname.slice(1);
-  localStorage.setItem('404path', path);
-  window.location.href = '../';
-</script>
+<html>
+  <head>
+    <script>
+      const path = window.location.pathname.slice(1);
+      localStorage.setItem('404path', path);
+      window.location.href = '%BASE_URL%';
+    </script>
+  </head>
+</html>
