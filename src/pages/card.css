@@ -4,7 +4,7 @@
   color: var(--text-color);
   border-radius: 0.7rem;
   padding: 1rem 1.2rem;
-  width: min(100%, 35rem);
+  width: 100%;
   transform-origin: 50% 100%;
   position: relative;
   transition: box-shadow 0.2s linear, transform 0.2s ease-in-out;
@@ -35,11 +35,10 @@
 }
 
 .card__compact {
-  transform: scale(0.9);
 }
 .cards .card.card__compact:hover,
 .cards .card.card__compact:focus-within {
-  transform: scale(0.93);
+  transform: scale(1.03);
 }
 
 .card:has(+ .card) {
@@ -74,4 +73,8 @@
   margin: 0.8rem 0;
   aspect-ratio: 10 / 4;
   text-align: center;
+}
+
+#card .card {
+  width: min(95vw, 40rem);
 }
