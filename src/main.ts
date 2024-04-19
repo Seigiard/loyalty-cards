@@ -8,7 +8,9 @@ import { $router } from './stores/router';
 import { $settingsModal } from './stores/settingsModal';
 import './style.css';
 
-$router.subscribe(({ params, route }) => {
+$router.subscribe((data) => {
+  // @ts-expect-error
+  const { params, route } = data;
   switch (route) {
     case 'settings':
       $cardId.value = undefined;
