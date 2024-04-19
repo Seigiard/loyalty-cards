@@ -1,4 +1,3 @@
-import navaid from 'navaid';
 // @ts-expect-error
 import { component } from 'reefjs';
 import { cards } from './pages/cards';
