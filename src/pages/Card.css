@@ -1,0 +1,3 @@
+.card__open {
+  width: min(95vw, 40rem);
+}

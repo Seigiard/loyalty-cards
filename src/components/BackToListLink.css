@@ -1,0 +1,5 @@
+.link-back-to-list {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--level, 0) * 10);
+}
