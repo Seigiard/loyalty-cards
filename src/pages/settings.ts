@@ -2,12 +2,11 @@
 import { signal } from 'reefjs';
 import { backToListLink } from '../components/backToListLink';
 import { layer } from '../components/layer';
-import { $settingsModal } from '../stores/settingsModal';
 import { getBaseUrl } from '../helpers/getBaseUrl';
 import './settings.css';
 
-export function settings() {
-  if (!$settingsModal.value) {
+export function settings(showModal: boolean) {
+  if (!showModal) {
     return settingsButton();
   }
 

@@ -1,12 +1,12 @@
 import { layer } from '../components/layer';
-import { $cards, Card } from '../stores/cards';
+import { Card } from '../stores/cards';
 import { renderCard } from './card';
 import './cards.css';
 
-export function cards() {
+export function cards(cards: readonly Card[]) {
   return layer(`
     <div class="cards">
-        ${$cards.value.map(cards_card).join('')}
+        ${cards.map(cards_card).join('')}
     </div>
   `);
 }

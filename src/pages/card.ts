@@ -4,12 +4,15 @@ import { $cards, Card, cardColors } from '../stores/cards';
 import { backToListLink } from '../components/backToListLink';
 import { code } from '../components/code';
 import { layer } from '../components/layer';
-import { $cardId } from '../stores/cardId';
 import { getBaseUrl } from '../helpers/getBaseUrl';
 import './card.css';
 
-export function card() {
-  const card = $cards.value.find((card) => card.uuid === $cardId.value);
+export function card(cardId: Card['uuid'] | undefined) {
+  if (!cardId) {
+    return '';
+  }
+
+  const card = $cards.get().find((card) => card.uuid === cardId);
 
   if (!card) {
     return '';

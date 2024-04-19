@@ -1,7 +1,3 @@
-// @ts-expect-error
-import { signal } from 'reefjs';
+import { atom } from 'nanostores';
 
-// Create a signal object
-export const $settingsModal: { value: boolean } = signal({
-  value: false,
-});
+export const $settingsModal = atom<boolean>(false);
