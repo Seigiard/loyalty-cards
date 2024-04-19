@@ -1,11 +1,11 @@
 // @ts-expect-error
-import { component } from 'reefjs';
+import { render, component } from 'reefjs';
+import { $router } from './stores/router';
+import { $activeCardId, $cards } from './stores/cards';
+import { $settingsModal } from './stores/settingsModal';
 import { cards } from './pages/cards';
 import { card } from './pages/card';
 import { settings } from './pages/settings';
-import { $cardId } from './stores/cardId';
-import { $router } from './stores/router';
-import { $settingsModal } from './stores/settingsModal';
 import './style.css';
 
 $router.subscribe((data) => {
@@ -13,21 +13,27 @@ $router.subscribe((data) => {
   const { params, route } = data;
   switch (route) {
     case 'settings':
-      $cardId.value = undefined;
-      $settingsModal.value = true;
+      $activeCardId.set(undefined);
+      $settingsModal.set(true);
       break;
     case 'card':
-      $cardId.value = params?.cardId;
-      $settingsModal.value = false;
+      $activeCardId.set(params?.cardId);
+      $settingsModal.set(false);
       break;
     case 'home':
     default:
-      $cardId.value = undefined;
-      $settingsModal.value = false;
+      $activeCardId.set(undefined);
+      $settingsModal.set(false);
       break;
   }
 });
 
-component('#cards', cards);
-component('#card', card);
-component('#settings', settings);
+$cards.subscribe((data) => {
+  render('#cards', cards(data));
+});
+$activeCardId.subscribe((cardId) => {
+  render('#card', card(cardId));
+});
+$settingsModal.subscribe((showModal) => {
+  render('#settings', settings(showModal));
+});
