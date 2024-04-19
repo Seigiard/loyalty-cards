@@ -1,12 +1,14 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import preact from '@preact/preset-vite';
 
 const BASE_FOLDER = '/loyalty-cards/';
 
 export default defineConfig({
   base: '/loyalty-cards/',
   plugins: [
+    preact(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png'],

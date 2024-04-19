@@ -10,7 +10,7 @@ export type CardColor =
   | 'RED'
   | 'YELLOW';
 export type CardCodeType = 'EAN13' | 'CODE128' | 'QR';
-export type Card = {
+export type CardType = {
   uuid: string;
   description: string;
   code: string;
@@ -19,9 +19,9 @@ export type Card = {
   color?: CardColor;
 };
 
-export const $cards = map<Card[]>(data as Card[]);
+export const $cards = map<CardType[]>(data as CardType[]);
 
-export const $activeCardId = atom<Card['uuid'] | undefined>(undefined);
+export const $activeCardId = atom<CardType['uuid'] | undefined>(undefined);
 
 export const cardColors: {
   [key in CardColor]: {

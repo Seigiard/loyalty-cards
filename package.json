@@ -10,6 +10,7 @@
     "size": "npm run build && size-limit"
   },
   "devDependencies": {
+    "@preact/preset-vite": "^2.8.2",
     "@size-limit/file": "^11.1.2",
     "size-limit": "^11.1.2",
     "typescript": "^5.2.2",
@@ -17,9 +18,10 @@
     "vite-plugin-pwa": "^0.19.8"
   },
   "dependencies": {
+    "@nanostores/preact": "^0.5.1",
     "@nanostores/router": "^0.15.0",
     "bwip-js": "^4.3.2",
-    "nanostores": "^0.10.3",
-    "reefjs": "^13.0.2"
+    "classix": "^2.1.37",
+    "nanostores": "^0.10.3"
   }
 }
