@@ -5,27 +5,27 @@ import { cards } from './pages/cards';
 import { card } from './pages/card';
 import { settings } from './pages/settings';
 import { $cardId } from './stores/cardId';
+import { $router } from './stores/router';
 import { $settingsModal } from './stores/settingsModal';
-import { getBaseUrl } from './helpers/getBaseUrl';
 import './style.css';
 
-const router = navaid();
-
-router
-  .on(getBaseUrl('/'), () => {
-    $cardId.value = undefined;
-    $settingsModal.value = false;
-  })
-  .on(getBaseUrl('/settings'), () => {
-    $cardId.value = undefined;
-    $settingsModal.value = true;
-  })
-  .on(getBaseUrl('/:cardId'), (params) => {
-    $cardId.value = params?.cardId;
-    $settingsModal.value = false;
-  });
-
-router.listen();
+$router.subscribe(({ params, route }) => {
+  switch (route) {
+    case 'settings':
+      $cardId.value = undefined;
+      $settingsModal.value = true;
+      break;
+    case 'card':
+      $cardId.value = params?.cardId;
+      $settingsModal.value = false;
+      break;
+    case 'home':
+    default:
+      $cardId.value = undefined;
+      $settingsModal.value = false;
+      break;
+  }
+});
 
 component('#cards', cards);
 component('#card', card);
