@@ -17,8 +17,9 @@
     "vite-plugin-pwa": "^0.19.8"
   },
   "dependencies": {
+    "@nanostores/router": "^0.15.0",
     "bwip-js": "^4.3.2",
-    "navaid": "^1.2.0",
+    "nanostores": "^0.10.3",
     "reefjs": "^13.0.2"
   }
 }
